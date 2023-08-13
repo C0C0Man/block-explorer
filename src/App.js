@@ -95,7 +95,7 @@ function App() {
                           <strong>From:</strong> {tx.from}<br />
                           <strong>To:</strong> {tx.to}<br />
                           <strong>Gas Used:</strong> {tx.gasUsed} <br />
-                          
+
                         </div>
                       )}
                     </li>
@@ -109,70 +109,6 @@ function App() {
     </div>
   );
 }
-
-/*function App() {
-  const [blockDataList, setBlockDataList] = useState([]);
-
-  useEffect(() => {
-    async function getLast10Blocks() {
-      const latestBlockNumber = await alchemy.core.getBlockNumber();
-      const blockNumbers = Array.from({ length: 10 }, (_, index) => latestBlockNumber - index);
-
-      const blocks = await Promise.all(
-        blockNumbers.map(async (blockNumber) => {
-          const block = await alchemy.core.getBlockWithTransactions(blockNumber);
-          return block;
-        })
-      );
-
-      setBlockDataList(blocks);
-    }
-
-    getLast10Blocks();
-  }, []);
-
-  const toggleTransactions = (blockNumber) => {
-    setBlockDataList((prevBlocks) =>
-      prevBlocks.map((block) =>
-        block.number === blockNumber
-          ? { ...block, showTransactions: !block.showTransactions }
-          : block
-      )
-    );
-  };
-
-  return (
-    <div className='App'>
-      <h2>Last 10 Blocks</h2>
-      <ul>
-        {blockDataList.map((blockData) => (
-          <li key={blockData.number}>
-            <strong
-              style={{ cursor: 'pointer' }}
-              onClick={() => toggleTransactions(blockData.number)}
-            >
-              Block Number: {blockData.number}
-            </strong>
-            {blockData.showTransactions && (
-              <div>
-                <strong>Timestamp:</strong> {new Date(blockData.timestamp * 1000).toLocaleString()}<br />
-                <strong>Transactions:</strong>
-                <ul>
-                  {blockData.transactions.map((tx, index) => (
-                    <li key={index}>
-                      <strong>Hash:</strong> {tx.hash}<br />
-                      <strong>From:</strong> {tx.from}<br />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}*/
 
 
 
